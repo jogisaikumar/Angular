@@ -1,0 +1,10 @@
+<h2>Child Component::</h2>
+<h3>Details</h3>
+<p>Customer No : {{customer.customerNo}} </p>
+<p>Name        : <input [(ngModel)]="customer.customerName"></p>
+<p>Address     : <input [(ngModel)]="customer.address"></p>
+<p>city     : <input [(ngModel)]="customer.city" ></p>
+<p>state     : <input [(ngModel)]="customer.state" ></p>
+<p>country     : <input  [(ngModel)]="customer.country" ></p>
+ 
+<button (click)="update()">Update</button>
