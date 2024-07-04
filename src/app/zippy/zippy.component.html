@@ -1,0 +1,10 @@
+
+<div>
+    <h3>Zippy Child Component</h3>
+    <button type="button" (click)="toggle()">Toggle</button>
+
+    <div [hidden]="!isVisible">
+        <ng-content>
+        </ng-content>
+    </div>
+</div>

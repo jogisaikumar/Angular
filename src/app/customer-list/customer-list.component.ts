@@ -1,15 +1,20 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { CustomerDetailComponent } from '../customer-detail/customer-detail.component';
 import { Customer } from '../customer';
+import { DatePipe } from '@angular/common';
+import { TitleCasePipe } from '../title-case.pipe';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-customer-list',
-  standalone: true,
-  imports: [CustomerDetailComponent],
-  templateUrl: './customer-list.component.html',
-  styleUrl: './customer-list.component.css'
+    selector: 'app-customer-list',
+    standalone: true,
+    templateUrl: './customer-list.component.html',
+    styleUrl: './customer-list.component.css',
+    imports: [CustomerDetailComponent, DatePipe, TitleCasePipe]
 })
 export class CustomerListComponent {
+
+  birthday = new Date(1963, 3, 15);
 
   customers: Customer[] = [
     { customerNo: 1, customerName: 'Rahul Dravid', address: '', city: 'Bangalore', state: 'Karnataka', country: 'India' },
@@ -20,11 +25,14 @@ export class CustomerListComponent {
   ];
 
   public selectedCustomer!: Customer;
+
+  
   constructor(private cdr: ChangeDetectorRef) {
 
     this.selectedCustomer = new Customer;
   }
 
+  
   public showDetails(customer: Customer) {
     this.selectedCustomer = {...customer}
   }
